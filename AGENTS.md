@@ -14,9 +14,10 @@ by Base44 on branch `base44/setup-*`.
 
 ## Key assets
 - `public/img/reference.png` — the original design reference screenshot (941×1672).
-- `public/img/hero-city.jpg` — derived hero plate (941×830): mockup text regions were
-  inpainted out with OpenCV (script pattern kept in the turn history, run via
-  `python:3.12-slim` + opencv-python-headless). Regenerate from reference.png if the hero needs rework.
+- `public/img/hero-city.jpg` — clean street-level crop (640×273, source rect x0-640 y465-738)
+  of the reference with NO inpainting — the user found inpainted areas visually broken
+  and asked to remove them. Do not reintroduce OpenCV inpainting; if the hero needs a
+  different look, crop another text-free region of reference.png instead.
 
 ## Verify
 - `curl http://localhost:3000/` returns the Vite dev index (react-refresh modules = live source, not a prebuilt bundle).
